@@ -1,0 +1,110 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Add Pizza</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          I'm an image
+        </ion-col>
+        <ion-col>
+          <ion-button color="primary" shape="round" [routerLink]="['/']">My Order</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-label>
+          Quantity: {{quantity}}
+        </ion-label>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-button color="medium" size="large" id="number-pad" (click)="numPressed(1)">1</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="medium" size="large" id="number-pad" (click)="numPressed(2)">2</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="medium" size="large" id="number-pad" (click)="numPressed(3)">3</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button color="medium" size="large" id="number-pad" (click)="numPressed(4)">4</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="medium" size="large" id="number-pad" (click)="numPressed(5)">5</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="medium" size="large" id="number-pad" (click)="numPressed(6)">6</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button color="medium" size="large" id="number-pad" (click)="numPressed(7)">7</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="medium" size="large" id="number-pad" (click)="numPressed(8)">8</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="medium" size="large" id="number-pad" (click)="numPressed(9)">9</ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button color="danger" size="large" id="number-pad" (click)="resetAll()">Reset</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="medium" size="large" id="number-pad" (click)="numPressed(0)">0</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="success" size="large" id="number-pad">Add</ion-button>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-list-header>
+            <ion-label>Topping: {{topping}}</ion-label>
+          </ion-list-header>
+
+          <ion-list>
+            <div *ngFor="let t of toppingList">
+              <ion-item class="highlight">
+                <ion-label>
+                  <h5>{{t.name}}</h5>
+                  <p>{{t.price}}</p>
+                </ion-label>
+              </ion-item>
+            </div>
+          </ion-list>
+        </ion-col>
+        <ion-col>
+          <ion-list-header>
+            <ion-label>Size: {{size}}</ion-label>
+          </ion-list-header>
+
+          <ion-list>
+            <div *ngFor="let s of sizeList">
+              <ion-item>
+                <ion-label>
+                  <h5>{{s.name}}</h5>
+                  <p>{{s.price}}</p>
+                </ion-label>
+              </ion-item>
+            </div>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>
