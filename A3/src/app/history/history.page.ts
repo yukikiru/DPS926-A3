@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PizzaService } from '../services/pizza.service';
 
 @Component({
   selector: 'app-history',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryPage implements OnInit {
 
-  constructor() { }
+  orderEmpty: boolean;
+
+  constructor(private pizzaService: PizzaService) { }
 
   ngOnInit() {
+    if(this.pizzaService.history.orderCollection.length === 0){
+      this.orderEmpty = true;
+    }
+    else{
+      this.orderEmpty = false;
+    }
   }
+
+
 
 }

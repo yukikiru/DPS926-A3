@@ -12,10 +12,10 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          I'm an image
+          <ion-img src="https://seeklogo.com/images/P/pizza-logo-42816D88BE-seeklogo.com.png"></ion-img>
         </ion-col>
-        <ion-col>
-          <ion-button color="primary" shape="round" [routerLink]="['/']">My Order</ion-button>
+        <ion-col class="align-button">
+          <ion-button  color="primary" shape="round" [routerLink]="['/current-order']">My Order</ion-button>
         </ion-col>
       </ion-row>
 
@@ -66,22 +66,22 @@
           <ion-button color="medium" size="large" id="number-pad" (click)="numPressed(0)">0</ion-button>
         </ion-col>
         <ion-col>
-          <ion-button color="success" size="large" id="number-pad">Add</ion-button>
+          <ion-button color="success" size="large" id="number-pad" (click)="addToOrder()">Add</ion-button>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col>
           <ion-list-header>
-            <ion-label>Topping: {{topping}}</ion-label>
+            <ion-label>Topping: {{selectedTopping.name}}</ion-label>
           </ion-list-header>
 
           <ion-list>
             <div *ngFor="let t of toppingList">
-              <ion-item class="highlight">
+              <ion-item button (click)="toppingSelected(t)">
                 <ion-label>
                   <h5>{{t.name}}</h5>
-                  <p>{{t.price}}</p>
+                  <p>+${{t.price}}</p>
                 </ion-label>
               </ion-item>
             </div>
@@ -89,15 +89,15 @@
         </ion-col>
         <ion-col>
           <ion-list-header>
-            <ion-label>Size: {{size}}</ion-label>
+            <ion-label>Size: {{selectedSize.name}}</ion-label>
           </ion-list-header>
 
           <ion-list>
             <div *ngFor="let s of sizeList">
-              <ion-item>
+              <ion-item button (click)="sizeSelected(s)">
                 <ion-label>
                   <h5>{{s.name}}</h5>
-                  <p>{{s.price}}</p>
+                  <p>+${{s.price}}</p>
                 </ion-label>
               </ion-item>
             </div>

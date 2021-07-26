@@ -22,7 +22,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-button color="medium" shape="round" id="main-button" [routerLink]="['/home']">Update Current Order</ion-button>
+          <ion-button color="medium" shape="round" id="main-button" [routerLink]="['/create-order']">Update Current Order</ion-button>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -32,7 +32,7 @@
       </ion-row>
       <ion-row>
         <ion-col>
-          <ion-button color="medium" shape="round" id="main-button" [routerLink]="['/create-order']">New Order</ion-button>
+          <ion-button color="medium" shape="round" id="main-button" [routerLink]="['/create-order']" (click)="makeNew()">New Order</ion-button>
         </ion-col>
       </ion-row>
     </ion-grid>

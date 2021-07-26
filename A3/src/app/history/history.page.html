@@ -7,19 +7,36 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        ion-col 1 
-      </ion-col>
-      <ion-col>
-        ion-col 2
-      </ion-col>
-      <ion-col>
-        ion-col 3
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <IonButton color="medium" [routerLink]="['/current-order']">Gello!</IonButton>
+<ion-content>
+  <div id="history-container">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-label id="header">Transaction History</ion-label>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div *ngIf="!orderEmpty">
+      <ion-card>  
+        <ion-card-content *ngFor="let h of pizzaService.history.orderCollection">
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                {{h.date}}
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                Cost: ${{h.orderPrice}}
+              </ion-col>
+              <ion-col>
+                Quantity: {{h.orderQuantity}}
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
 </ion-content>
